@@ -1,9 +1,7 @@
 	<!DOCTYPE html>
-	        <meta charset="utf-8">
 	<html>
-		<head>
-			
-				<title>PasteBin</title>
+		<head>			
+			<title>PasteBin</title>
 			<style>
 				body {
 					position: relative;
@@ -27,24 +25,22 @@
 			</style>
 		</head>    
 		<body>
-			<form id="search-form" name="form" method="post">
+				<form id="search-form" name="form" method="post">
 				<textarea rows="30" cols="150" id="search-input" name="input"></textarea>
 				<input name="utf8" type="submit" id="search-submit" value="Submit" />
 			</form>
 		</body>
 	</html>	
 	<?php
-
 		if(isset($_POST['input'])) { 
 			if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){	
-			
 			die("EMPTY");
 			}
 			$towrite = $_POST['input'];
-			$filename = "/var/www/dump/" . md5($towrite);
+			$filename = "/var/www/html/dump/" . md5($towrite);
 			$fh = fopen($filename, 'w') or die("Fail!");
 			fwrite($fh, chr(239).chr(187).chr(191).$towrite);
 			fclose($fh);
-			header('Location: https://justaguy.pw/dump/' . md5($towrite)	);			
+			header('Location: http://localhost/dump/' . md5($towrite));			
 		}
 	?>
