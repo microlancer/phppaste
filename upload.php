@@ -1,6 +1,6 @@
 	<!DOCTYPE html>
 	<html>
-		<head>			
+		<head>
 			<title>PasteBin</title>
 			<style>
 				body {
@@ -23,17 +23,17 @@
 					align-self: center;
 				}
 			</style>
-		</head>    
+		</head>
 		<body>
 				<form id="search-form" name="form" method="post">
 				<textarea rows="30" cols="150" id="search-input" name="input"></textarea>
-				<input name="utf8" type="submit" id="search-submit" value="Submit" />
+				<input name="utf8" type="submit" id="search-submit" value="Submit">
 			</form>
 		</body>
-	</html>	
+	</html>
 	<?php
-		if(isset($_POST['input'])) { 
-			if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){	
+		if(isset($_POST['input'])) {
+			if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){
 			die("EMPTY");
 			}
 			$towrite = $_POST['input'];
@@ -42,6 +42,6 @@
 			$fh = fopen($filename, 'w') or die("Fail!");
 			fwrite($fh, chr(239).chr(187).chr(191).$towrite);
 			fclose($fh);
-			header('Location: http://localhost/dump/' . $md5);			
+			header('Location: http://localhost/dump/' . $md5);
 		}
 	?>
