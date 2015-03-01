@@ -42,14 +42,16 @@
 	</html>
 	<?php
 		if(isset($_POST['input'])) {
-            if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){ die("Please enter something..."); }
-			if (md5($_POST['password']) !== 'MD5HASHHERE' ) { die("Wrong password."); }
+			if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){ die("Please enter something..."); }
+# Yes, the password is stored in plain text. But who cares, it's just to prevent someone from pasting "I'M ANONYMOUS SITE HACKED ZOMG" to your pastebin. 
+# If your webserver gets powned and the password gets leaked, they can paste anyway
+        	if ($_POST['password'] !== 'PASSWORDHERE' ) { die("Wrong password."); }
 			$towrite = $_POST['input'];
-			$md5 = md5($towrite);
-			$filename = "/var/www/html/dump/" . $md5;
+			$hash = hash('sha256', $towrite);
+			$filename = "/var/www/justaguy/dump/" . $hash;
 			$fh = fopen($filename, 'w') or die("Fail!");
 			fwrite($fh, chr(239).chr(187).chr(191).$towrite);
 			fclose($fh);
-			header('Location: http://localhost/dump/' . $md5);
+			header('Location: https://justaguy.pw/dump/' . $hash);
 		}
 	?>
