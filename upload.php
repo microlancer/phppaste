@@ -45,12 +45,7 @@
 			if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){
 			die("EMPTY");
 			}
-			if (md5($_POST['password']) === 'MD5HASHHERE' ) { 
-			}
-			else
-			{
-			die("WRONGPASSWORD");
-			}
+			if (md5($_POST['password']) !== 'MD5HASHHERE' ) { die("Wrong password."); }
 			$towrite = $_POST['input'];
 			$md5 = md5($towrite);
 			$filename = "/var/www/html/dump/" . $md5;
