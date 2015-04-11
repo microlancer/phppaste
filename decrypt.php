@@ -1,7 +1,7 @@
 	<!DOCTYPE html>
 	<html>
 		<head>
-			<title>Encrypt</title>
+			<title>Decrypt</title>
 			<style>
 				body {
 					position: relative;
@@ -32,30 +32,24 @@
 			</style>
 		</head>
 		<body>
-				<form id="search-form" name="form" method="post">
-				<textarea rows="30" cols="150" id="search-input" name="input"></textarea>
-				<input name="utf8" type="submit" id="search-submit" value="Submit">
+					<form id="search-form" name="form" method="post">
+					<textarea rows="30" cols="150" id="search-input" name="input"></textarea>
+					<pre id="passwordlabel" >Enter the password below!</pre>
+					<textarea rows="1" cols="2" id="password" name="password"></textarea>
+					<input name="utf8" type="submit" id="search-submit" value="Submit">
 			</form>
 		</body>
 	</html>
 <?php
 		if(isset($_POST['input'])) {
 		if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){ die("Please enter something..."); }
-
-# This code sucks.
-    $password = "passwordf";
-	$hash = $password;
-	$key = $hash;
-    $data = $_POST['input'];
-    $key_size =  strlen($key);
-    echo "<pre>";
-    echo "Key size: " . $key_size . PHP_EOL;
-	$garbage = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key , $data , MCRYPT_MODE_CBC);
-	$content = base64_encode($garbage);
-	echo $content . PHP_EOL;
+	echo "<pre>";
+	$key = $_POST['password'];
+	$content = $_POST['password'];
 	$plaintextprepare = base64_decode($content);
 	$plaintext_decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $plaintextprepare, MCRYPT_MODE_CBC);
 	echo $plaintext_decrypted . PHP_EOL ;
 	echo "</pre>";
 			}
 ?>
+
