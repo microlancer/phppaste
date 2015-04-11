@@ -6,7 +6,7 @@
     # convert a string into a key
     # key is specified using hexadecimal
     $password = "password";
-hash = md5($password);
+	$hash = md5($password);
     $key = pack('H*', $hash);
     
     # show key size use either 16, 24 or 32 byte keys for AES-128, 192
