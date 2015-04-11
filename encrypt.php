@@ -46,10 +46,10 @@
     $password = "password";
 	$hash = $password;
     $key = pack('H*', $hash);
-    echo $key;
     $data = $_POST['input'];
     $key_size =  strlen($key);
     echo "<pre>";
+    echo $key;
     echo "Key size: " . $key_size . PHP_EOL;
 	$garbage = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key , $data , MCRYPT_MODE_CBC);
 	$content = base64_encode($garbage);
