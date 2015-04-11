@@ -52,6 +52,6 @@
 			$fh = fopen($filename, 'w') or die("Fail!");
 			fwrite($fh, chr(239).chr(187).chr(191).$towrite);
 			fclose($fh);
-			header('Location: https://justaguy.pw/dump/' . $hash);
+			header('Location: https://mirrors.justaguy.pw/dump/' . $hash);
 		}
 	?>
