@@ -6,13 +6,7 @@
     # convert a string into a key
     # key is specified using hexadecimal
     $password = "password";
-$iterations = 1000;
-
-// Generate a random IV using mcrypt_create_iv(),
-// openssl_random_pseudo_bytes() or another suitable source of randomness
-$salt = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
-
-$hash = hash_pbkdf2("sha256", $password, $salt, $iterations, 20);
+hash = md5($password);
     $key = pack('H*', $hash);
     
     # show key size use either 16, 24 or 32 byte keys for AES-128, 192
