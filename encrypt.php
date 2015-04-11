@@ -43,7 +43,7 @@
 		if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){ die("Please enter something..."); }
 
 # This code sucks.
-    $password = "password";
+    $password = "passwordf";
 	$hash = $password;
 	$key = $hash;
 #    $key = pack('H*', $hash);
