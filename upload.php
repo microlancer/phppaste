@@ -48,4 +48,5 @@
 			fwrite($fh, chr(239).chr(187).chr(191).$towrite);
 			fclose($fh);
 			header('Location: https://mirrors.justaguy.pw/dump/' . $hash);
+		}
 	?>
