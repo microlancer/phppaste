@@ -48,7 +48,7 @@
         	if ($_POST['password'] !== 'PASSWORDHERE' ) { die("Wrong password."); }
 			$towrite = $_POST['input'];
 			$hash = hash('sha256', $towrite);
-			$filename = "/var/www/justaguy/dump/" . $hash;
+			$filename = "/var/www/dump/" . $hash;
 			$fh = fopen($filename, 'w') or die("Fail!");
 			fwrite($fh, chr(239).chr(187).chr(191).$towrite);
 			fclose($fh);
