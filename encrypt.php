@@ -46,6 +46,7 @@
     $password = "password";
 	$hash = $password;
     $key = pack('H*', $hash);
+    echo $key;
     $data = $_POST['input'];
     $key_size =  strlen($key);
     echo "<pre>";
