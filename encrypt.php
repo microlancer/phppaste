@@ -44,7 +44,7 @@
 
 # This code sucks.
     $password = "password";
-	$hash = md5($password);
+	$hash = $password;
     $key = pack('H*', $hash);
     $data = $_POST['input'];
     $key_size =  strlen($key);
