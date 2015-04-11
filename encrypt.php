@@ -6,11 +6,11 @@
     $key = pack('H*', $hash);
     $data = "do-re-mi-fa-sol";
     $key_size =  strlen($key);
-    echo "Key size: " . $key_size . "\n";
+    echo "Key size: " . $key_size . "\r\n";
 	$garbage = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key , $data , MCRYPT_MODE_CBC);
 	$content = base64_encode($garbage);
-	echo $content;
+	echo $content . "\r\n";
 	$plaintextprepare = base64_decode($content);
-	    $plaintext_dec = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $plaintext_prepare, MCRYPT_MODE_CBC);
-	echo $plaintext_dec . "\r\n";
+	$plaintext_decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $plaintext_prepare, MCRYPT_MODE_CBC);
+	echo $plaintext_decrypted . "\r\n";
 ?>
