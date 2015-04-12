@@ -57,6 +57,6 @@
 	$plaintext_decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $plaintextprepare, MCRYPT_MODE_CBC);
 	echo $plaintext_decrypted . PHP_EOL ;
 	echo "</pre>";
-	echo base64_encode(mcrypt_create_iv(4, MCRYPT_DEV_URANDOM));
+	echo base64_encode(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
 			}
 ?>
