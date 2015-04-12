@@ -43,9 +43,9 @@
 		if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){ die("Please enter something..."); }
 
 # This code sucks.
-    $password = mcrypt_create_iv(32, MCRYPT_DEV_URANDOM);
     $data = $_POST['input'];
-    $key_size =  strlen($key);
+    $password = mcrypt_create_iv(32, MCRYPT_DEV_URANDOM);
+    $key_size =  strlen($password);
     echo "<pre>";
     echo "Key size: " . $key_size . PHP_EOL;
 	$garbage = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $password , $data , MCRYPT_MODE_CBC);
