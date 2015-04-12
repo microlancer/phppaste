@@ -44,17 +44,15 @@
 
 # This code sucks.
     $password = mcrypt_create_iv(32, MCRYPT_DEV_URANDOM);
-	$hash = $password;
-	$key = $hash;
     $data = $_POST['input'];
     $key_size =  strlen($key);
     echo "<pre>";
     echo "Key size: " . $key_size . PHP_EOL;
-	$garbage = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key , $data , MCRYPT_MODE_CBC);
+	$garbage = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $password , $data , MCRYPT_MODE_CBC);
 	$content = base64_encode($garbage);
 	echo "The encrypted content is: " . $content . PHP_EOL;
 	$plaintextprepare = base64_decode($content);
-	$plaintext_decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $key, $plaintextprepare, MCRYPT_MODE_CBC);
+	$plaintext_decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $password, $plaintextprepare, MCRYPT_MODE_CBC);
 	echo "The decrypted content is: " . $plaintext_decrypted . PHP_EOL;
 	echo "The password is: " . base64_encode($password) . PHP_EOL;
 	echo "</pre>";
