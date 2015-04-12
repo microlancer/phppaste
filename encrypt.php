@@ -43,20 +43,20 @@
 		if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){ die("Please enter something..."); }
 
 # This code sucks.
-    $password = "passwordf";
+    $password = mcrypt_create_iv(32, MCRYPT_DEV_URANDOM);
 	$hash = $password;
 	$key = $hash;
     $data = $_POST['input'];
     $key_size =  strlen($key);
     echo "<pre>";
     echo "Key size: " . $key_size . PHP_EOL;
-	$garbage = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key , $data , MCRYPT_MODE_CBC);
+	$garbage = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key , $data , MCRYPT_MODE_CBC);
 	$content = base64_encode($garbage);
 	echo $content . PHP_EOL;
 	$plaintextprepare = base64_decode($content);
 	$plaintext_decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $plaintextprepare, MCRYPT_MODE_CBC);
-	echo $plaintext_decrypted . PHP_EOL ;
+	echo $plaintext_decrypted . PHP_EOL;
+	echo base64_encode($password) . PHP_EOL;
 	echo "</pre>";
-	echo base64_encode(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
 			}
 ?>

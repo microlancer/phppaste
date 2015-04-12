@@ -44,10 +44,10 @@
 		if(isset($_POST['input'])) {
 		if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){ die("Please enter something..."); }
 	echo "<pre>";
-	$key = $_POST['password'];
+	$key = base64_decode($_POST['password']);
 	$content = $_POST['input'];
 	$plaintextprepare = base64_decode($content);
-	$plaintext_decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $plaintextprepare, MCRYPT_MODE_CBC);
+	$plaintext_decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $key, $plaintextprepare, MCRYPT_MODE_CBC);
 	echo $plaintext_decrypted . PHP_EOL ;
 	echo "</pre>";
 			}
