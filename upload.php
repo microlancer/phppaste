@@ -32,7 +32,7 @@
 			</style>
 		</head>
 		<body>
-				<form id="search-form" name="form" method="post">
+			<form id="search-form" name="form" method="post">
 				<textarea rows="30" cols="150" id="search-input" name="input"></textarea>
 				<input name="utf8" type="submit" id="search-submit" value="Submit">
 			</form>
