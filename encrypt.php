@@ -52,11 +52,11 @@
     echo "Key size: " . $key_size . PHP_EOL;
 	$garbage = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key , $data , MCRYPT_MODE_CBC);
 	$content = base64_encode($garbage);
-	echo $content . PHP_EOL;
+	echo "The encrypted content is: " . $content . PHP_EOL;
 	$plaintextprepare = base64_decode($content);
 	$plaintext_decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $key, $plaintextprepare, MCRYPT_MODE_CBC);
-	echo $plaintext_decrypted . PHP_EOL;
-	echo base64_encode($password) . PHP_EOL;
+	echo "The decrypted content is: " . $plaintext_decrypted . PHP_EOL;
+	echo "The password is: " . base64_encode($password) . PHP_EOL;
 	echo "</pre>";
 			}
 ?>
