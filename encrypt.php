@@ -1,5 +1,5 @@
-	<!DOCTYPE html>
-	<html>
+<!DOCTYPE html>
+<html>
 		<head>
 			<title>Encrypt</title>
 			<style>
@@ -37,7 +37,7 @@
 				<input name="utf8" type="submit" id="search-submit" value="Submit">
 			</form>
 		</body>
-	</html>
+</html>
 <?php
 		if(isset($_POST['input'])) {
 		if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){ die("Please enter something..."); }
