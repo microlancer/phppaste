@@ -54,7 +54,7 @@
 	$content = base64_encode($garbage);
 	echo $content . PHP_EOL;
 	$plaintextprepare = base64_decode($content);
-	$plaintext_decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $plaintextprepare, MCRYPT_MODE_CBC);
+	$plaintext_decrypted = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $key, $plaintextprepare, MCRYPT_MODE_CBC);
 	echo $plaintext_decrypted . PHP_EOL;
 	echo base64_encode($password) . PHP_EOL;
 	echo "</pre>";
