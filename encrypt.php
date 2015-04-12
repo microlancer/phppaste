@@ -41,7 +41,6 @@ align-self: center;
 <?php
 if(isset($_POST['input'])) {
 if(!isset($_REQUEST['input']) || strlen(trim($_REQUEST['input'])) == 0){ die("Please enter something..."); }
-# This code sucks.
 $data = $_POST['input'];
 $password = mcrypt_create_iv(32, MCRYPT_DEV_URANDOM);
 $key_size =  strlen($password);
